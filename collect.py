@@ -304,7 +304,7 @@ def collect_linear_evidence(
 ) -> list[dict]:
     """Query Linear API for issues updated in the time window."""
     query = """
-    query($teamId: String!, $after: DateTime!) {
+    query($teamId: ID!, $after: DateTimeOrDuration!) {
       issues(
         filter: {
           team: { id: { eq: $teamId } }
@@ -348,7 +348,7 @@ def collect_linear_evidence(
                 },
             },
             headers={
-                "Authorization": api_key,
+                "Authorization": api_key.removeprefix("Bearer ") if api_key.startswith("Bearer ") else api_key,
                 "Content-Type": "application/json",
             },
             timeout=30,
@@ -361,7 +361,7 @@ def collect_linear_evidence(
                 resp = requests.post(
                     "https://api.linear.app/graphql",
                     json={"query": query, "variables": {"teamId": team_id, "after": since.isoformat()}},
-                    headers={"Authorization": api_key, "Content-Type": "application/json"},
+                    headers={"Authorization": api_key.removeprefix("Bearer ") if api_key.startswith("Bearer ") else api_key, "Content-Type": "application/json"},
                     timeout=30,
                 )
                 if resp.status_code != 429:
