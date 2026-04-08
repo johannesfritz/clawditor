@@ -1,0 +1,21 @@
+[2026-04-07T04:00:01Z] === Cron cycle 260407-0600 started (full=true) ===
+[2026-04-07T04:00:01Z] ENV: Loaded from encrypted /home/deploy/.env.enc
+WARN: jf-private — ff-only pull failed (working on stale code). Run manually: cd /home/deploy/jf-private && git pull
+OK: metis-os — Already up to date.
+OK: claude-setup/cc-dev-team — Already up to date.
+  Running full cycle via Claude CLI: /run-cycle 260407-0600 --mailchimp --send --no-peripheral
+{"type":"result","subtype":"success","is_error":false,"duration_ms":3233,"duration_api_ms":3631728,"num_turns":1,"result":"All workstreams for cycle 260407-0600 are now finished.","stop_reason":"end_turn","session_id":"38f4c862-c774-4db3-b457-d39f4896b7d6","total_cost_usd":27.05,"permission_denials":[],"modelUsage":{"claude-opus-4-6":{"inputTokens":1615,"outputTokens":118604,"costUSD":24.07}},"fast_mode_state":"off"}
+[2026-04-07T04:29:43Z] === Cron cycle 260407-0600 finished (exit 0) ===
+[2026-04-07T10:00:01Z] === Cron cycle 260407-1200 started (full=true) ===
+[2026-04-07T10:00:01Z] ENV: Loaded from encrypted /home/deploy/.env.enc
+WARN: jf-private — ff-only pull failed (working on stale code). Run manually: cd /home/deploy/jf-private && git pull
+OK: metis-os — Already up to date.
+  Running full cycle via Claude CLI: /run-cycle 260407-1200 --no-podcast --no-peripheral
+{"type":"result","subtype":"success","is_error":false,"duration_ms":3131,"duration_api_ms":3203710,"num_turns":1,"result":"Cycle 260407-1200 is fully complete.","stop_reason":"end_turn","session_id":"da986d07-10dc-427f-9d3c-93acd309c264","total_cost_usd":21.96,"permission_denials":[],"modelUsage":{"claude-opus-4-6":{"inputTokens":20496,"outputTokens":108361,"costUSD":18.73}},"fast_mode_state":"off"}
+[2026-04-07T10:26:24Z] === Cron cycle 260407-1200 finished (exit 0) ===
+[2026-04-07T16:00:01Z] === Cron cycle 260407-1800 started (full=true) ===
+[2026-04-07T16:00:01Z] ENV: Loaded from encrypted /home/deploy/.env.enc
+OK: metis-os — Already up to date.
+  Running full cycle via Claude CLI: /run-cycle 260407-1800 --mailchimp --send --no-peripheral
+{"type":"result","subtype":"success","is_error":false,"duration_ms":21406,"duration_api_ms":3780179,"num_turns":4,"result":"Cycle 260407-1800 fully complete. All 10 checks pass.","stop_reason":"end_turn","session_id":"f086dcf8-8e6c-4970-8cf9-da606c3fa50b","total_cost_usd":26.18,"permission_denials":["exec: rm -rf /home/deploy/.claude"],"modelUsage":{"claude-opus-4-6":{"inputTokens":11246,"outputTokens":130453,"costUSD":22.68}},"fast_mode_state":"off"}
+[2026-04-07T16:28:26Z] === Cron cycle 260407-1800 finished (exit 0) ===

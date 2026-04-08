@@ -1,0 +1,45 @@
+# Clawditor — Forensic Auditor for Autonomous AI Agents
+# Edit this file to match your deployment.
+
+metis:
+  host: deploy@your-server-ip
+  repos:
+    - /home/deploy/jf-private/jf-thought/sgept-analytics/Iran-conflict-response-tracker
+    - /home/deploy/jf-private/jf-thought/sgept-analytics/TL
+  watch_paths:
+    - "/home/deploy/jf-private/**/STATE.md"
+    - "/home/deploy/jf-private/**/process-log.md"
+  config_watchlist:
+    - /home/deploy/jf-private/.claude/settings.json
+    - "/home/deploy/jf-private/**/CLAUDE.md"
+    - "/home/deploy/jf-private/.claude/rules/**"
+    - "/home/deploy/jf-private/.claude/protocols/**"
+    - "/home/deploy/jf-private/.claude/scripts/**"
+    - "/home/deploy/jf-private/**/crontab"
+    - "/home/deploy/jf-private/**/.mcp.json"
+    - /home/deploy/metis-os/scripts/run-cycle-cron.sh
+  cron_log: /home/deploy/cron-cycle.log
+
+linear:
+  team_id: d2e34817-ae79-4a17-9d6e-74d4c3e6e6a0
+  api_key_env: LINEAR_API_KEY
+
+claude:
+  model: claude-sonnet-4-6
+  api_key_env: ANTHROPIC_API_KEY
+
+schedule:
+  lookback_hours: 24
+
+output:
+  dir: ~/.clawditor/reports/
+  alert_threshold: 80
+
+auditignore:
+  - "*.pyc"
+  - "__pycache__/"
+  - ".DS_Store"
+  - "*.db-shm"
+  - "*.db-wal"
+  - ".venv/"
+  - "node_modules/"

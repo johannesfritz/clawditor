@@ -1,0 +1,6 @@
+[2026-04-07T04:00:01Z] === Cron cycle 260407-0600 started (full=true) ===
+[2026-04-07T04:00:01Z] ENV: Loaded from encrypted /home/deploy/.env.enc
+OK: metis-os — Already up to date.
+  Running full cycle via Claude CLI: /run-cycle 260407-0600 --mailchimp --send --no-peripheral
+{"type":"result","subtype":"error","is_error":true,"duration_ms":1500,"result":"Config parse error: invalid YAML in settings.json","stop_reason":"error","session_id":"crash-session-001","total_cost_usd":0.50,"permission_denials":[],"modelUsage":{}}
+[2026-04-07T04:01:31Z] === Cron cycle 260407-0600 finished (exit 1) ===
