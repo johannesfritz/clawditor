@@ -243,7 +243,7 @@ class TestLoadConfig:
         assert "metis" in config
         assert "linear" in config
         assert "claude" in config
-        assert config["metis"]["host"] == "deploy@your-server-ip"
+        assert "host" in config["metis"]
 
 
 # --- Evidence assembly ---

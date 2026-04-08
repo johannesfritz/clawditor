@@ -20,7 +20,12 @@ import yaml
 
 def load_config(path: str = "config.yaml") -> dict:
     with open(path) as f:
-        return yaml.safe_load(f)
+        raw = f.read()
+    # Resolve ${ENV_VAR} references from environment / .env
+    def _resolve(m: re.Match) -> str:
+        return os.environ.get(m.group(1), m.group(0))
+    raw = re.sub(r"\$\{(\w+)\}", _resolve, raw)
+    return yaml.safe_load(raw)
 
 
 def ssh_command(host: str, cmd: str, timeout: int = 30, retries: int = 2) -> str | None:

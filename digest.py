@@ -5,6 +5,8 @@ Reads audit JSON and produces a human-readable markdown digest.
 """
 
 import json
+import os
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -14,7 +16,11 @@ import yaml
 
 def load_config(path: str = "config.yaml") -> dict:
     with open(path) as f:
-        return yaml.safe_load(f)
+        raw = f.read()
+    def _resolve(m: re.Match) -> str:
+        return os.environ.get(m.group(1), m.group(0))
+    raw = re.sub(r"\$\{(\w+)\}", _resolve, raw)
+    return yaml.safe_load(raw)
 
 
 def verdict_emoji(verdict: str) -> str:

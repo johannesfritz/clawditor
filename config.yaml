@@ -2,7 +2,7 @@
 # Edit this file to match your deployment.
 
 metis:
-  host: deploy@your-server-ip
+  host: ${METIS_HOST}
   repos:
     - /home/deploy/jf-private/jf-thought/sgept-analytics/Iran-conflict-response-tracker
     - /home/deploy/jf-private/jf-thought/sgept-analytics/TL

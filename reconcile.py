@@ -8,6 +8,7 @@ with trust scores, flags, and classifications.
 
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -105,7 +106,11 @@ Respond with ONLY a JSON object matching this schema:
 
 def load_config(path: str = "config.yaml") -> dict:
     with open(path) as f:
-        return yaml.safe_load(f)
+        raw = f.read()
+    def _resolve(m: re.Match) -> str:
+        return os.environ.get(m.group(1), m.group(0))
+    raw = re.sub(r"\$\{(\w+)\}", _resolve, raw)
+    return yaml.safe_load(raw)
 
 
 def reconcile_session(
